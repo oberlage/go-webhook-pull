@@ -11,4 +11,6 @@ To compile this script use the `go build` command. You can build it for specific
 Start on commandline by `TOKEN=abc123 PORT=1337 ./go-webhook-pull &`.
 You can ommit the env variables (Defaults: no token auth, port 8080).
 
+Pulling now works via: `http://localhost:1337/pull?token=abc123`. It returns HTTP 200 on success, HTTP 401 on token error, HTTP 500 on `git pull` error.
+
 [1]: https://dave.cheney.net/2015/08/22/cross-compilation-with-go-1-5
