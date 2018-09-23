@@ -26,7 +26,7 @@ An example `systemd` service file is included (see `gowebhookpull.service` and `
 ## Endpoints
 
 | Method | Endpoint | Description |
-| --- | --- |
+| --- | --- | --- |
 | `GET` `POST` | `http://X.X.X.X:PORT/pull` | Trigger to perform a git pull action |
 | `GET` | `http://X.X.X.X:PORT/info` | Show info about this program (such as the current version) |
 
