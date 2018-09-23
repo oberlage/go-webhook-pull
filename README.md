@@ -6,7 +6,7 @@ If you want easy uncomplicated deployment from your git repository, this will se
 You can configure your webhook so that this listener is called upon a push to your repository,  this program will then perform `git pull` to load the latest version of your repository.
 
 ## Compiling
-You need the Go tools for compiling to compile. To compile this script use the `./build.sh` script that is included in the repo. You can append your specific OS and architecture, please refer to [this blog post of Dave Cheney][1] for more info.
+See the releases page in this repository for pre-compiled version. In case you want to compile yourself or for other platforms you need the Go tools for compiling to compile. To compile this script use the `./build.sh` script that is included in the repo. You can append your specific OS and architecture, please refer to [this blog post of Dave Cheney][1] for more info.
 
 ## Setup
 You have to setup your git repository as usual (by using `git clone` and checking out the branch you want). This script assumes that authentication is handled, i.e. via SSH keys. 
