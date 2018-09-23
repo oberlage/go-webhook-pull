@@ -11,7 +11,7 @@ import (
 )
 
 var router *gin.Engine
-var version = "1.0.0"
+var version = "1.0.1"
 
 var validPullPath string
 
@@ -67,11 +67,11 @@ func directoryExists(filePath string) (exists bool) {
 // isValidPullPath checks wether the specified pullpath is a valid string and if it exists
 // when input variable pullPath is empty, is it assumed to be valid and set to ./ in the output variable.
 func isValidPullPath(pullPath string) (isValid bool, validPath string) {
-	re := regexp.MustCompile(`(?m)^[a-zA-Z0-9_\- ]+$`)
+	re := regexp.MustCompile(`^[a-zA-Z0-9_\- \/]+$`)
 
 	if re.MatchString(pullPath) && directoryExists(pullPath) {
 		isValid = true
-		validPath = fmt.Sprintf("%s/", pullPath)
+		validPath = pullPath
 		return
 	}
 
@@ -115,5 +115,12 @@ func handlePull(c *gin.Context) {
 }
 
 func handleInfo(c *gin.Context) {
+	paramToken := c.Query("token")
+
+	if !correctToken(paramToken) {
+		c.JSON(http.StatusForbidden, gin.H{"error": "Token is wrong."})
+		return
+	}
+
 	c.JSON(http.StatusOK, gin.H{"version": version})
 }

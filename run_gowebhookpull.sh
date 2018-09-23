@@ -1,0 +1,1 @@
+TOKEN=abc123 PORT=1337 PULLPATH="/var/www/something/public_html" ./go-webhook-pull

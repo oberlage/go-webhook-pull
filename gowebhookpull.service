@@ -1,0 +1,13 @@
+[Unit]
+Description=go-webhook-pull service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=your-user
+ExecStart=/bin/bash /path/to/bash/script/run_gowebhookpull.sh
+
+[Install]
+WantedBy=multi-user.target
